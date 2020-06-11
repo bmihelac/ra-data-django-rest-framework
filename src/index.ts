@@ -1,7 +1,6 @@
 import { stringify } from 'query-string';
 import {
   Identifier,
-  GetOneParams,
   Pagination,
   Sort,
   Filter,
@@ -57,7 +56,7 @@ export default (
       };
     },
 
-    getOne: async (resource, params: GetOneParams) => {
+    getOne: async (resource, params) => {
       const data = await getOneJson(resource, params.id);
       return {
         data,
@@ -114,7 +113,7 @@ export default (
       };
     },
 
-    delete: (resource, params: any) =>
+    delete: (resource, params) =>
       httpClient(`${apiUrl}/${resource}/${params.id}/`, {
         method: 'DELETE',
       }).then(() => ({ data: params.previousData })),

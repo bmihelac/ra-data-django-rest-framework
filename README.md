@@ -5,6 +5,7 @@ framework](https://www.django-rest-framework.org/).
 
 [![Stable Release](https://img.shields.io/npm/v/ra-data-django-rest-framework)](https://npm.im/ra-data-django-rest-framework)
 [![license](https://badgen.now.sh/badge/license/MIT)](./LICENSE)
+![CI](https://github.com/bmihelac/ra-data-django-rest-framework/workflows/CI/badge.svg)
 
 ra-data-django-rest-framework includes backend and client example application
 and tests.

@@ -1,0 +1,46 @@
+{
+  "name": "test-react-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "prop-types": "^15.7.2",
+    "ra-data-json-server": "^3.1.2",
+    "ra-data-django-rest-framework": "link:../../",
+    "react": "^16.12.0",
+    "react-admin": "^3.1.2",
+    "react-dom": "^16.12.0",
+    "ra-data-fakerest": "^3.0.0",
+    "ra-input-rich-text": "^3.0.0",
+    "ra-language-english": "^3.0.0",
+    "ra-language-french": "^3.0.0",
+    "react-scripts": "3.4.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "proxy": "http://localhost:8000",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}

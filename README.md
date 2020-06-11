@@ -10,6 +10,10 @@ framework](https://www.django-rest-framework.org/).
 ra-data-django-rest-framework includes backend and client example application
 and tests.
 
+<p align="center">
+  <img src="https://github.com/bmihelac/ra-data-django-rest-framework/blob/master/docs/ra-data-django-rest-framework.png" alt="ra-data-django-rest-framework" />
+</p>
+
 ## Install
 
 ```bash

@@ -110,5 +110,4 @@ yarn test
 
 ## TODO
 
-* implement pagination perPage
 * examples for image upload

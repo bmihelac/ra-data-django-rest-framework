@@ -23,6 +23,13 @@
       "pre-commit": "tsdx lint"
     }
   },
+  "keywords": [
+    "react-admin",
+    "react",
+    "django",
+    "drf",
+    "djangorestframework"
+  ],
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -47,5 +54,9 @@
   },
   "dependencies": {
     "query-string": "^6.12.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/bmihelac/ra-data-django-rest-framework/issues"
+  },
+  "homepage": "https://github.com/bmihelac/ra-data-django-rest-framework"
 }

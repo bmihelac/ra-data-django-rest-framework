@@ -74,6 +74,7 @@ cd example/backend
 virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+./manage.py migrate
 ./manage.py loaddata initial
 ```
 
@@ -88,6 +89,7 @@ django-rest-framework browsable api is available on http://localhost:8000/api/
 ### React-admin demo application
 
 ```bash
+yarn install # install ra-data-django-rest-framework
 cd example/client
 yarn install
 yarn start

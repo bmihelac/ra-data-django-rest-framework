@@ -33,6 +33,8 @@
   "author": "Bojan Mihelac",
   "module": "dist/ra-data-django-rest-framework.esm.js",
   "devDependencies": {
+    "cross-fetch": "^3.0.5",
+    "fetch-mock-jest": "^1.3.0",
     "husky": "^4.2.5",
     "react": "^16.9.0",
     "react-admin": "3.6.0",

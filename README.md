@@ -1,6 +1,6 @@
 # ra-data-django-rest-framework
 
-[react-admin](https://marmelab.com/react-admin/) data provider for [Django REST
+[react-admin](https://marmelab.com/react-admin/) data and authentication provider for [Django REST
 framework](https://www.django-rest-framework.org/).
 
 [![Stable Release](https://img.shields.io/npm/v/ra-data-django-rest-framework)](https://npm.im/ra-data-django-rest-framework)
@@ -32,6 +32,7 @@ const dataProvider = drfProvider("/api");
 * Sorting
 * Pagination
 * Filtering
+* Authentication
 
 ### Sorting
 
@@ -63,6 +64,23 @@ ra-data-django-rest-framework supports:
 * [Generic Filtering](https://www.django-rest-framework.org/api-guide/filtering/#generic-filtering)
 * [DjangoFilterBackend](https://www.django-rest-framework.org/api-guide/filtering/#djangofilterbackend)
 
+### Authentication
+
+#### tokenAuthProvider
+
+`tokenAuthProvider` uses
+[TokenAuthentication](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication)
+to obtain token from django-rest-framework. User token is saved in `localStorage`.
+
+`fetchJsonWithAuthToken` *httpClient* adds authorization header with user token to every request.
+
+```javascrtipt
+import drfProvider, { tokenAuthProvider, fetchJsonWithAuthToken } from 'ra-data-django-rest-framework';
+
+const authProvider = tokenAuthProvider()
+const dataProvider = drfProvider("/api", fetchJsonWithAuthToken);
+```
+
 ## Example app
 
 ### Django application with django-rest-framework
@@ -83,8 +101,6 @@ Run server:
 ./manage.py runserver
 ```
 
-django-rest-framework browsable api is available on http://localhost:8000/api/
-
 ### React-admin demo application
 
 ```bash
@@ -94,6 +110,8 @@ yarn start
 ```
 
 You can now view example app in the browser: http://localhost:3000
+Login with user `admin`, password is `password` or create new users in Django
+admin dashboard or shell.
 
 ## Contributing
 

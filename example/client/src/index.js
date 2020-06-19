@@ -1,22 +1,22 @@
 /* eslint react/jsx-key: off */
 import React from 'react';
-import { Admin, Resource } from 'react-admin'; // eslint-disable-line import/no-unresolved
+import { Admin, Resource} from 'react-admin'; // eslint-disable-line import/no-unresolved
 import { render } from 'react-dom';
 import { Route } from 'react-router-dom';
 
-import authProvider from './authProvider';
 import comments from './comments';
 import CustomRouteLayout from './customRouteLayout';
 import CustomRouteNoLayout from './customRouteNoLayout';
-import drfProvider from 'ra-data-django-rest-framework';
+import drfProvider, { tokenAuthProvider, fetchJsonWithAuthToken } from 'ra-data-django-rest-framework';
 import i18nProvider from './i18nProvider';
 import Layout from './Layout';
 import posts from './posts';
 import users from './users';
 import tags from './tags';
 
+const authProvider = tokenAuthProvider()
 
-const dataProvider = drfProvider("/api");
+const dataProvider = drfProvider("/api", fetchJsonWithAuthToken);
 
 render(
     <Admin

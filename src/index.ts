@@ -8,6 +8,11 @@ import {
   DataProvider,
 } from 'ra-core';
 
+export {
+  default as tokenAuthProvider,
+  fetchJsonWithAuthToken,
+} from './tokenAuthProvider';
+
 const getPaginationQuery = (pagination: Pagination) => {
   return {
     page: pagination.page,

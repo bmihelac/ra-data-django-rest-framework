@@ -72,7 +72,11 @@ ra-data-django-rest-framework supports:
 [TokenAuthentication](https://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication)
 to obtain token from django-rest-framework. User token is saved in `localStorage`.
 
-`fetchJsonWithAuthToken` *httpClient* adds authorization header with user token to every request.
+`tokenAuthProvider` accepts options as second argument with
+`obtainAuthTokenUrl` key. Default URL for obtaining a token is `/api-token-auth/`.
+
+`fetchJsonWithAuthToken` overrides *httpClient* and adds authorization header
+with previously saved user token to every request.
 
 ```javascrtipt
 import drfProvider, { tokenAuthProvider, fetchJsonWithAuthToken } from 'ra-data-django-rest-framework';

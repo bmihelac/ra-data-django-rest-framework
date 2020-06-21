@@ -36,6 +36,9 @@ jobs:
         env:
           CI: true
 
+      - name: Upload coverage
+        run: bash <(curl -s https://codecov.io/bash)
+
       - name: Build
         run: yarn build
         env:

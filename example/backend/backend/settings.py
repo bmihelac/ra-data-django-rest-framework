@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "django_filters",
     "rest_framework",
+    "rest_framework.authtoken",
     "exampleapp",
 ]
 
@@ -131,4 +132,12 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.filters.SearchFilter',
     ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # SessionAuthentication is intentionally removed, see:
+        # https://github.com/encode/django-rest-framework/issues/6104'
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
 }

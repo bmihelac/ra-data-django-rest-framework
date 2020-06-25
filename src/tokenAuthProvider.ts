@@ -62,8 +62,8 @@ export function createOptionsFromToken() {
   };
 }
 
-export function fetchJsonWithAuthToken(url: string) {
-  return fetchUtils.fetchJson(url, createOptionsFromToken());
+export function fetchJsonWithAuthToken(url: string, header: object) {
+  return fetchUtils.fetchJson(url, Object.assign(createOptionsFromToken(), header));
 }
 
 export default tokenAuthProvider;

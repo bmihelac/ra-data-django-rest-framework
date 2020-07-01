@@ -3,6 +3,7 @@ import fetchMock from 'fetch-mock-jest';
 
 import tokenAuthProvider, {
   createOptionsFromToken,
+  fetchJsonWithAuthToken,
 } from '../src/tokenAuthProvider';
 
 fetchMock.config.overwriteRoutes = true;
@@ -94,5 +95,14 @@ describe('createOptionsFromToken', () => {
   test('without token', () => {
     localStorage.clear();
     expect(createOptionsFromToken()).toEqual({});
+  });
+});
+
+describe('fetchJsonWithAuthToken', function() {
+  fetchMock.patch('/', 200);
+  test('with options', () => {
+    fetchJsonWithAuthToken('/', {
+      method: 'PATCH',
+    });
   });
 });

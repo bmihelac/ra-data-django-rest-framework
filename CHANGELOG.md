@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/bmihelac/ra-data-django-rest-framework/compare/v0.1.2...v0.1.3) (2020-07-01)
+
+
+### Bug Fixes
+
+* fetchJsonWithAuthToken missing options param ([#4](https://github.com/bmihelac/ra-data-django-rest-framework/issues/4)) ([e51f17e](https://github.com/bmihelac/ra-data-django-rest-framework/commit/e51f17e75219301a3e18d80d453f87d8860e570e))
+
 ### [0.1.2](https://github.com/bmihelac/ra-data-django-rest-framework/compare/v0.1.1...v0.1.2) (2020-06-21)
 
 

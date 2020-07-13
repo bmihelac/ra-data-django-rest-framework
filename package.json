@@ -46,7 +46,7 @@
     "react": "^16.9.0",
     "react-admin": "3.6.0",
     "react-dom": "^16.9.0",
-    "standard-version": "^8.0.0",
+    "standard-version": "^8.0.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.3"

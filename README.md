@@ -107,6 +107,11 @@ Run server:
 ./manage.py runserver
 ```
 
+Admin credentials in the example app are:
+
+`admin`
+`password`
+
 ### React-admin demo application
 
 ```bash

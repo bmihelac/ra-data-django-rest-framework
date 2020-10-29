@@ -63,7 +63,6 @@ export function createOptionsFromToken() {
 }
 
 export function fetchJsonWithAuthToken(url: string, options: object) {
-  console.log(options);
   return fetchUtils.fetchJson(
     url,
     Object.assign(createOptionsFromToken(), options)

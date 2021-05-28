@@ -13,6 +13,11 @@ export {
   fetchJsonWithAuthToken,
 } from './tokenAuthProvider';
 
+export {
+  default as jwtTokenAuthProvider,
+  fetchJsonWithAuthJWTToken,
+} from './jwtTokenAuthProvider';
+
 const getPaginationQuery = (pagination: Pagination) => {
   return {
     page: pagination.page,

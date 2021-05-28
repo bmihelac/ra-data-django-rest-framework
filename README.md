@@ -86,6 +86,25 @@ const authProvider = tokenAuthProvider()
 const dataProvider = drfProvider("/api", fetchJsonWithAuthToken);
 ```
 
+#### jwtTokenAuthProvider
+
+`jwtTokenAuthProvider` uses
+[JSON Web Token Authentication](https://www.django-rest-framework.org/api-guide/authentication/#json-web-token-authentication)
+to obtain token from django-rest-framework. User token is saved in `localStorage`.
+
+`jwtTokenAuthProvider` accepts options as second argument with
+`obtainAuthJWTTokenUrl` key. Default URL for obtaining a token is `/api-token-auth/`.
+
+`fetchJsonWithAuthJWTToken` overrides *httpClient* and adds authorization header
+with previously saved user token to every request.
+
+```javascrtipt
+import drfProvider, { jwtTokenAuthProvider, fetchJsonWithAuthJWTToken } from 'ra-data-django-rest-framework';
+
+const authProvider = jwtTokenAuthProvider()
+const dataProvider = drfProvider("/api", fetchJsonWithAuthJWTToken);
+```
+
 ## Example app
 
 ### Django application with django-rest-framework

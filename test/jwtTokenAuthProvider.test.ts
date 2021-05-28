@@ -18,7 +18,7 @@ describe('login', () => {
     fetchMock.post('/api-token-auth/', () => {
       return 404;
     });
-    await expect(tokenAuthProvider().login(LOGIN_DATA)).rejects.toThrow(
+    await expect(jwtTokenAuthProvider().login(LOGIN_DATA)).rejects.toThrow(
       'Not Found'
     );
   });
@@ -35,25 +35,25 @@ describe('login', () => {
   });
 
   it('should set token when successfull', async () => {
-    const token = 'abcdef';
+    const access = 'abcdef';
     fetchMock.post('/api-token-auth/', {
-      body: { token },
+      body: { access },
     });
     await jwtTokenAuthProvider().login(LOGIN_DATA);
-    expect(localStorage.getItem('token')).toBe(token);
+    expect(localStorage.getItem('access')).toBe(access);
   });
 });
 
 describe('logout', () => {
   it('should remove token', async () => {
-    localStorage.setItem('token', 'abcdef');
+    localStorage.setItem('access', 'abcdef');
     await jwtTokenAuthProvider().logout({});
   });
 });
 
 describe('checkAuth', () => {
   it('should return resolve when token exists', async () => {
-    localStorage.setItem('token', 'abcdef');
+    localStorage.setItem('access', 'abcdef');
     await expect(jwtTokenAuthProvider().checkAuth({})).resolves.toBeUndefined();
   });
   it('should return reject when token does not exists', async () => {
@@ -83,11 +83,11 @@ describe('getPermissions', () => {
 
 describe('createOptionsFromJWTToken', () => {
   test('with token', () => {
-    localStorage.setItem('token', 'abcdef');
+    localStorage.setItem('access', 'abcdef');
     expect(createOptionsFromJWTToken()).toEqual({
       user: {
         authenticated: true,
-        token: 'Token abcdef',
+        token: 'Bearer abcdef',
       },
     });
   });

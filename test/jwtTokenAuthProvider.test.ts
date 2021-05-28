@@ -15,7 +15,7 @@ describe('login', () => {
   };
 
   it('should throw error with statusText for non json responses', async () => {
-    fetchMock.post('/api-token-auth/', () => {
+    fetchMock.post('/api/token/', () => {
       return 404;
     });
     await expect(jwtTokenAuthProvider().login(LOGIN_DATA)).rejects.toThrow(
@@ -25,7 +25,7 @@ describe('login', () => {
 
   it('should throw error with non_field_errors', async () => {
     const error = 'Unable to log in with provided credentials.';
-    fetchMock.post('/api-token-auth/', {
+    fetchMock.post('/api/token/', {
       body: {
         non_field_errors: [error],
       },
@@ -36,7 +36,7 @@ describe('login', () => {
 
   it('should set token when successfull', async () => {
     const access = 'abcdef';
-    fetchMock.post('/api-token-auth/', {
+    fetchMock.post('/api/token/', {
       body: { access },
     });
     await jwtTokenAuthProvider().login(LOGIN_DATA);

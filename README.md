@@ -93,7 +93,7 @@ const dataProvider = drfProvider("/api", fetchJsonWithAuthToken);
 to obtain token from django-rest-framework. User token is saved in `localStorage`.
 
 `jwtTokenAuthProvider` accepts options as second argument with
-`obtainAuthJWTTokenUrl` key. Default URL for obtaining a token is `/api-token-auth/`.
+`obtainAuthJWTTokenUrl` key. Default URL for obtaining a token is `/api/token/`.
 
 `fetchJsonWithAuthJWTToken` overrides *httpClient* and adds authorization header
 with previously saved user token to every request.

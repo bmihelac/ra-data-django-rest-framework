@@ -6,7 +6,7 @@ export interface Options {
 
 function jwtTokenAuthProvider(options: Options = {}): AuthProvider {
   const opts = {
-    obtainAuthTokenUrl: '/api-token-auth/',
+    obtainAuthTokenUrl: '/api/token/',
     ...options,
   };
   return {

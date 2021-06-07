@@ -144,6 +144,15 @@ You can now view example app in the browser: http://localhost:3000
 Login with user `admin`, password is `password` or create new users in Django
 admin dashboard or shell.
 
+By default the ``rest_framework.authentication.TokenAuthentication`` will be 
+used. To use ``rest_framework_simplejwt.authentication.JWTAuthentication``, set
+the value of the ``REACT_APP_USE_JWT_AUTH`` variable in the .env 
+file (example/client/.env) to true, as shown below:
+
+```text
+REACT_APP_USE_JWT_AUTH=true
+```
+
 ## Contributing
 
 This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).

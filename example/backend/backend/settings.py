@@ -25,7 +25,7 @@ SECRET_KEY = 'ixptu$grtiawnh5@jkva&9=1$&(@bz6*znf025mj=6q2dq6@i3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -136,6 +136,7 @@ REST_FRAMEWORK = {
         # SessionAuthentication is intentionally removed, see:
         # https://github.com/encode/django-rest-framework/issues/6104'
         'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',

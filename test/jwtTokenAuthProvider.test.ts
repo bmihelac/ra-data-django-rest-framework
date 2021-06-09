@@ -31,7 +31,9 @@ describe('login', () => {
       },
       status: 400,
     });
-    await expect(jwtTokenAuthProvider().login(LOGIN_DATA)).rejects.toThrow(error);
+    await expect(jwtTokenAuthProvider().login(LOGIN_DATA)).rejects.toThrow(
+      error
+    );
   });
 
   it('should set token when successfull', async () => {

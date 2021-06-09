@@ -4,3 +4,4 @@ node_modules
 dist
 coverage/
 example/backend/db.sqlite3
+.idea

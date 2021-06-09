@@ -7,16 +7,27 @@ import { Route } from 'react-router-dom';
 import comments from './comments';
 import CustomRouteLayout from './customRouteLayout';
 import CustomRouteNoLayout from './customRouteNoLayout';
-import drfProvider, { tokenAuthProvider, fetchJsonWithAuthToken } from 'ra-data-django-rest-framework';
+import drfProvider, { tokenAuthProvider, fetchJsonWithAuthToken, jwtTokenAuthProvider, fetchJsonWithAuthJWTToken } from 'ra-data-django-rest-framework';
 import i18nProvider from './i18nProvider';
 import Layout from './Layout';
 import posts from './posts';
 import users from './users';
 import tags from './tags';
+import { parseBool } from "./helpers";
 
-const authProvider = tokenAuthProvider()
+let authProvider;
+let dataProvider;
+const useJWTAuth = parseBool(process.env.REACT_APP_USE_JWT_AUTH);
 
-const dataProvider = drfProvider("/api", fetchJsonWithAuthToken);
+if (useJWTAuth) {
+    console.log("Using rest_framework_simplejwt.authentication.JWTAuthentication");
+    authProvider = jwtTokenAuthProvider({obtainAuthTokenUrl: "/api/token/"});
+    dataProvider = drfProvider("/api", fetchJsonWithAuthJWTToken);
+} else {
+    console.log("Using rest_framework.authentication.TokenAuthentication");
+    authProvider = tokenAuthProvider();
+    dataProvider = drfProvider("/api", fetchJsonWithAuthToken);
+}
 
 render(
     <Admin

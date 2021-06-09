@@ -86,6 +86,25 @@ const authProvider = tokenAuthProvider()
 const dataProvider = drfProvider("/api", fetchJsonWithAuthToken);
 ```
 
+#### jwtTokenAuthProvider
+
+`jwtTokenAuthProvider` uses
+[JSON Web Token Authentication](https://www.django-rest-framework.org/api-guide/authentication/#json-web-token-authentication)
+to obtain token from django-rest-framework. User token is saved in `localStorage`.
+
+`jwtTokenAuthProvider` accepts options as second argument with
+`obtainAuthJWTTokenUrl` key. Default URL for obtaining a token is `/api/token/`.
+
+`fetchJsonWithAuthJWTToken` overrides *httpClient* and adds authorization header
+with previously saved user token to every request.
+
+```javascrtipt
+import drfProvider, { jwtTokenAuthProvider, fetchJsonWithAuthJWTToken } from 'ra-data-django-rest-framework';
+
+const authProvider = jwtTokenAuthProvider()
+const dataProvider = drfProvider("/api", fetchJsonWithAuthJWTToken);
+```
+
 ## Example app
 
 ### Django application with django-rest-framework
@@ -124,6 +143,15 @@ yarn start
 You can now view example app in the browser: http://localhost:3000
 Login with user `admin`, password is `password` or create new users in Django
 admin dashboard or shell.
+
+By default the ``rest_framework.authentication.TokenAuthentication`` will be 
+used. To use ``rest_framework_simplejwt.authentication.JWTAuthentication``, set
+the value of the ``REACT_APP_USE_JWT_AUTH`` variable in the .env 
+file (example/client/.env) to true, as shown below:
+
+```text
+REACT_APP_USE_JWT_AUTH=true
+```
 
 ## Contributing
 

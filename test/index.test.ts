@@ -171,7 +171,7 @@ describe('dataProvider', () => {
       expect(
         await dataProvider.deleteMany('posts', { ids: [item.id] })
       ).toEqual({
-        data: [item.id],
+        data: [],
       });
     });
   });

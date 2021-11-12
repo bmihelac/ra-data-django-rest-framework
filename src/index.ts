@@ -135,6 +135,6 @@ export default (
             method: 'DELETE',
           })
         )
-      ).then(responses => ({ data: responses.map(({ json }) => json.id) })),
+      ).then(() => ({ data: [] })),
   };
 };
